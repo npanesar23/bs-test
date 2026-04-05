@@ -521,20 +521,22 @@
           </div>
         </div>
       </div>
-      <form class="contact-form fade-up" onsubmit="handleSubmit(event)">
+      <form class="contact-form fade-up" action="https://formspree.io/f/bsquaretirelube@hotmail.com" method="POST">
         <h3>Send Us a Message</h3>
         <div class="form-group">
           <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Your name" required />
+          <input type="text" name="name" id="name" placeholder="Your name" required />
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="you@example.com" required />
+          <input type="email" name="email" id="email" placeholder="you@example.com" required />
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell us how we can help…" required></textarea>
+          <textarea name="message" id="message" placeholder="Tell us how we can help…" required></textarea>
         </div>
+        <input type="hidden" name="_subject" value="New inquiry from B Square website" />
+        <input type="hidden" name="_next" value="" />
         <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
     </div>
@@ -647,15 +649,6 @@
   );
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Website Inquiry from ' + name);
-    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-    window.location.href = 'mailto:bsquaretirelube@hotmail.com?subject=' + subject + '&body=' + body;
-  }
 </script>
 
 </body>
